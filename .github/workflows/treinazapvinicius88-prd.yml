@@ -24,12 +24,11 @@ jobs:
       - uses: jakejarvis/s3-sync-action@master
         with:
           args: --acl public-read --follow-symlinks --delete
-      - name: DIRETORIO
-        run: pwd && ls -la
-        
         env:
           AWS_S3_BUCKET: 'treinazapvinicius88'
           AWS_ACCESS_KEY_ID: 'AKIA5GTEBXPIFXDX6DUB'
           AWS_SECRET_ACCESS_KEY: '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'
           AWS_REGION: 'us-east-1'   # optional: defaults to us-east-1
           SOURCE_DIR: './'
+        
+       
