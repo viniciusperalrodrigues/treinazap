@@ -28,6 +28,6 @@ jobs:
           AWS_ACCESS_KEY_ID: 'AKIA5GTEBXPIFXDX6DUB'
           AWS_SECRET_ACCESS_KEY: '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'
           AWS_REGION: 'us-east-1'   # optional: defaults to us-east-1
-          SOURCE_DIR: './'
+          SOURCE_DIR: './build'
         
        
