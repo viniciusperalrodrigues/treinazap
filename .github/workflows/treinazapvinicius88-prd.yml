@@ -10,18 +10,22 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-    - name:  INSTALL E BUILD
-      run: npm install && npm run build
-      env: 
-        CI: "false"
-    - name: CD BUILD
-      run: cd build && ls -la
-    - uses: actions/checkout@master
-    - uses: jakejarvis/s3-sync-action@master
-      with:
-        args: --acl public-read --follow-symlinks --delete
-      env:
-        AWS_S3_BUCKET: 'treinazapvinicius88'
-        AWS_ACCESS_KEY_ID: 'AKIA5GTEBXPIFXDX6DUB'
-        AWS_SECRET_ACCESS_KEY: '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'
-        AWS_REGION: 'us-east-1'   # optional: defaults to us-east-1
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12.21.0
+      - name:  INSTALL E BUILD
+        run: npm install && npm run build
+        env: 
+          CI: "false"
+      - name: CD BUILD
+        run: cd build && ls -la
+      - uses: actions/checkout@master
+      - uses: jakejarvis/s3-sync-action@master
+        with:
+          args: --acl public-read --follow-symlinks --delete
+        env:
+          AWS_S3_BUCKET: 'treinazapvinicius88'
+          AWS_ACCESS_KEY_ID: 'AKIA5GTEBXPIFXDX6DUB'
+          AWS_SECRET_ACCESS_KEY: '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'
+          AWS_REGION: 'us-east-1'   # optional: defaults to us-east-1
