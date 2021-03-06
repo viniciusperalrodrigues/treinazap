@@ -10,6 +10,12 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+    - name:  INSTALL E BUILD
+      run: npm install && npm run build
+      env: 
+        CI: "false"
+    - name: CD BUILD
+      run: cd build && ls -la
     - uses: actions/checkout@master
     - uses: jakejarvis/s3-sync-action@master
       with:
